@@ -30,7 +30,7 @@ node(platform) {
 
     stage("Sign") {
         if (platform == 'android') {
-            if (buildtype == 'release') {
+            if (buildType == 'release') {
                 signAndroidApks (
                     keyStoreId: "${params.BUILD_CREDENTIAL_ID}",
                     keyAlias: "${params.BUILD_CREDENTIAL_ALIAS}",
