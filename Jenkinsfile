@@ -4,8 +4,10 @@
 * Cordova Jenkinsfile
 */
 
-def platform = params?.PLATFORM?.trim()
-def buildType = params?.BUILD_CONFIG?.trim()
+// def platform = params?.PLATFORM?.trim()
+// def buildType = params?.BUILD_CONFIG?.trim()
+def platform = 'android'
+def buidType = 'debug'
 
 node(platform) {
     stage("Checkout") {
