@@ -4,10 +4,8 @@
 * Cordova Jenkinsfile
 */
 
-// def platform = params?.PLATFORM?.trim()
-// def buildType = params?.BUILD_CONFIG?.trim()
-def platform = 'android'
-def buildType = 'debug'
+def platform = params?.PLATFORM?.trim()
+def buildType = params?.BUILD_TYPE?.trim()
 
 node(platform) {
     stage("Checkout") {
@@ -32,7 +30,7 @@ node(platform) {
 
     stage("Sign") {
         if (platform == 'android') {
-            if (params.BUILD_CONFIG == 'release') {
+            if (buildtype == 'release') {
                 signAndroidApks (
                     keyStoreId: "${params.BUILD_CREDENTIAL_ID}",
                     keyAlias: "${params.BUILD_CREDENTIAL_ALIAS}",
