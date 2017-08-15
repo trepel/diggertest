@@ -15,6 +15,7 @@ node(platform) {
     }
 
     stage("Prepare") {
+        sh "cordova platform rm $platform"
         sh "cordova platform add $platform"
         sh "cordova prepare $platform"
     }
